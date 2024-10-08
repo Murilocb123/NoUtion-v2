@@ -24,9 +24,15 @@
 
     <div class="form-group field col-12  mt-4">
       <p-floatLabel>
-        <p-chips formControlName="tags" formGroupName="tags" />
+        <p-chips formControlName="tags" formGroupName="tags" [max]="3" [maxLength]="14" [showClear]="true" [addOnTab]="true" separator=","/>
         <label for="tags">Tags</label>
+
       </p-floatLabel>
+
+      <small id="tag-help">
+        Use a vírgula para separar as tags
+      </small>
+
       <!-- <p-inputGroupAddon>?</p-inputGroupAddon> -->
     </div>
 

@@ -13,8 +13,10 @@ import { BehaviorSubject, Subject, Subscription, takeUntil } from 'rxjs';
 })
 export class NotesListComponent  implements OnInit, OnDestroy{
     public layout: string = 'list';
+    public updated: boolean = false;
 
     public notes!: NoteDto[];
+
 
     @Output("parentFun") parentFun: EventEmitter<any> = new EventEmitter();
     @Output("updateItem") updateEvent: EventEmitter<any> = new EventEmitter();
@@ -34,6 +36,17 @@ export class NotesListComponent  implements OnInit, OnDestroy{
     public externalLoadNotes(): void{
       console.log('externalLoadNotes');
       this.loadNotes();
+    }
+
+    public loadNotesWithLoading(): void {
+      console.log('loadNotes');
+      this.updated = true;
+      this.noteService.getList().then(notes => {
+        setTimeout(() => {
+          this.updated = false;
+        }, 1500);
+        this.notes = notes;
+      });
     }
 
     public loadNotes(): void {

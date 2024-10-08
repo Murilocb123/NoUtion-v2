@@ -20,6 +20,7 @@ export class NotesFormComponent implements OnInit {
   ];
   public isEdit: boolean = false;
   public title: string = 'Nova Tarefa';
+  public newChip: string|null = null;
 
   constructor(
     private formBuilder: FormBuilder,

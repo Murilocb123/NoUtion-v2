@@ -1,10 +1,10 @@
 <div class="card">
   <div class=" flex align-items-end justify-content-end">
     <button pButton type="button" label="Atualizar" icon="pi pi-refresh" class="p-button-raised p-button-rounded"
-    (click)="loadNotes()"></button>
+    (click)="loadNotesWithLoading()"></button>
   </div>
 
-  <p-dataView #dv [value]="notes">
+  <p-dataView #dv [value]="notes" [loading]="updated">
     <ng-template pTemplate="header">
     </ng-template>
 
@@ -21,18 +21,8 @@
             <div class="flex flex-column justify-content-between md:align-items-start flex-1 gap-4">
               <div class="flex flex-column justify-content-between align-items-start gap-2">
                 <div class="text-lg font-medium text-900 mt-2" [innerHTML]="reduceContent(item.content)"></div>
-                <!-- <div class="surface-100 p-1" style="border-radius: 30px">
-                  <ng-container *ngFor="let tag of item.tags">
-                    <div class="surface-0 flex align-items-center gap-2 justify-content-center py-1 px-2"
-                    style="border-radius: 30px; box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.04), 0px 1px 2px 0px rgba(0, 0, 0, 0.06)">
-                    <span class="text-900 font-medium text-sm">{{ tag }}</span>
-                    <i class="pi pi-star-fill text-yellow-500"></i>
-                  </div>
-                  </ng-container>
-
-                </div> -->
               </div>
-              <div class="flex flex-row  justify-content-end align-items-end gap-2">
+              <div class="flex flex-column md:flex-row   md:justify-content-start md:align-items-start gap-2">
                 <ng-container *ngFor="let tag of item.tags">
 
                   <p-tag severity="secondary" [value]="tag" [rounded]="true" />
@@ -40,16 +30,16 @@
               </div>
             </div>
             <div class="flex flex-column md:align-items-end gap-5">
-              <div class="flex flex-row-reverse md:flex-row gap-2">
+              <div class="flex flex-row gap-2">
                 <ng-container *ngIf="!isNoteActive(item)">
                   <p-button color icon="pi pi-check" [outlined]="false" severity="success" [raised]="true" [disabled]="false" (onClick)="updateStatus(item)"/>
                 </ng-container>
                 <ng-container *ngIf="isNoteActive(item)">
                   <p-button icon="pi pi-check" [outlined]="true" severity="secondary" [raised]="true" [disabled]="false" (onClick)="updateStatus(item)"/>
                 </ng-container>
-                <p-button icon="pi pi-pencil" class="flex-auto md:flex-initial white-space-nowrap" label=""  [raised]="true"
+                <p-button icon="pi pi-pencil"  label=""  [raised]="true"
                 (onClick)="updateNote(item.id)"/>
-                <p-button icon="pi pi-times" class="flex-auto md:flex-initial white-space-nowrap" label=""  [raised]="true"
+                <p-button icon="pi pi-times"  label=""  [raised]="true"
                 (onClick)="deleteNote(item.id)" severity="danger"/>
               </div>
             </div>
