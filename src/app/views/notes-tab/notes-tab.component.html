@@ -1,26 +1,50 @@
-<p-panel header="NoUtion" >
-    <p-tabView [(activeIndex)]="tabActiveIndex" (onChange)="onChange()">
-        <p-tabPanel>
-            <ng-template pTemplate="header" >
-                <div class="flex align-items-center gap-2">
-                    <span class="pi pi-list"> </span>
-                    <span class="font-bold white-space-nowrap m-0">
-                        Listar Tarefas
-                    </span>
-                </div>
-            </ng-template>
-            <app-notes-list #notesListComponent (updateItem)="updateItem($event)"></app-notes-list>
-        </p-tabPanel>
-        <p-tabPanel >
-            <ng-template pTemplate="header">
-                <div class="flex align-items-center gap-2">
-                    <span class="pi pi-plus"> </span>
-                    <span class="font-bold white-space-nowrap m-0">
-                        Criar Tarefa
-                    </span>
-                </div>
-            </ng-template>
-            <app-notes-form #notesFormComponent></app-notes-form>
-        </p-tabPanel>
-    </p-tabView>
+<p-panel>
+  <ng-template pTemplate="header">
+    <div class="grid grid-nogutter">
+      <div class="col-6">
+      <div class="flex flex-column p-4 gap-3">
+          <h2 class="m-0">NoUtion</h2>
+        </div>
+      </div>
+      </div>
+      <div class="col">
+        <div class="flex flex-column  align-items-end align-content-end gap-5">
+          <div class="flex flex-row gap-2 aborder-1 border-300 border-round p-2 surface-100 shadow-2">
+            <p-inputSwitch [ngModel]="isDarkMode" (ngModelChange)="toggleLightDark()" anable />
+            <div class="text-x2 ml-3">
+              @if (isDarkMode) {
+              🌚
+              } @else {
+              🌞
+              }
+            </div>
+          </div>
+        </div>
+      </div>
+
+  </ng-template>
+  <p-tabView [(activeIndex)]="tabActiveIndex" (onChange)="onChange()">
+    <p-tabPanel>
+      <ng-template pTemplate="header">
+        <div class="flex align-items-center gap-2">
+          <span class="pi pi-list"> </span>
+          <span class="font-bold white-space-nowrap m-0">
+            Listar Tarefas
+          </span>
+        </div>
+      </ng-template>
+      <app-notes-list #notesListComponent (updateItem)="updateItem($event)"></app-notes-list>
+    </p-tabPanel>
+    <p-tabPanel>
+      <ng-template pTemplate="header">
+        <div class="flex align-items-center gap-2">
+          <span class="pi pi-plus"> </span>
+          <span class="font-bold white-space-nowrap m-0">
+            Criar Tarefa
+          </span>
+        </div>
+      </ng-template>
+      <app-notes-form #notesFormComponent></app-notes-form>
+    </p-tabPanel>
+  </p-tabView>
 </p-panel>

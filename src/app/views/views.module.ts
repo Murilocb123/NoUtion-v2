@@ -21,6 +21,8 @@ import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 import { InputGroupModule } from 'primeng/inputgroup';
 import { MessagesModule } from 'primeng/messages';
 import { Toast, ToastModule } from 'primeng/toast';
+import { InputSwitchModule } from 'primeng/inputswitch';
+
 
 
 
@@ -50,7 +52,8 @@ import { Toast, ToastModule } from 'primeng/toast';
     InputGroupAddonModule,
     InputGroupModule,
     MessagesModule,
-    ToastModule
+    ToastModule,
+    InputSwitchModule
   ],
   providers: [],
   exports: [
