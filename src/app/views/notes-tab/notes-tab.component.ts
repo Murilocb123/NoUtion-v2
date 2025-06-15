@@ -31,7 +31,7 @@ export class NotesTabComponent {
     }
   }
 
-  public updateItem(id:number){
+  public updateItem(id:string){
     this.notesFormComponent.loadValues(id);
     this.tabActiveIndex = 1;
   }

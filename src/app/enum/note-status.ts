@@ -1,4 +1,4 @@
 export enum NoteStatus {
-    ACTIVE,
-    INACTIVE,
+    CONCLUDED = 'CONCLUDED',
+    OPEN = 'OPEN',
 }

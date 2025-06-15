@@ -1,27 +1,32 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { NotesListComponent } from './notes-list/notes-list.component';
-import { NotesFormComponent } from './notes-form/notes-form.component';
-import { NotesTabComponent } from './notes-tab/notes-tab.component';
-import { ButtonModule } from 'primeng/button';
-import { TabViewModule } from 'primeng/tabview';
-import { PanelModule } from 'primeng/panel';
-import { ChipModule } from 'primeng/chip';
-import { DataViewModule } from 'primeng/dataview';
-import { TagModule } from 'primeng/tag';
-import { NoteService } from '../services/note-service';
+import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { FloatLabelModule } from 'primeng/floatlabel';
-import { InputTextModule } from 'primeng/inputtext';
-import { FieldsetModule } from 'primeng/fieldset';
-import { EditorModule } from 'primeng/editor';
+import { ButtonModule } from 'primeng/button';
+import { ChipModule } from 'primeng/chip';
 import { ChipsModule } from 'primeng/chips';
+import { DataViewModule } from 'primeng/dataview';
 import { DropdownModule } from 'primeng/dropdown';
-import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
+import { EditorModule } from 'primeng/editor';
+import { FieldsetModule } from 'primeng/fieldset';
+import { FloatLabelModule } from 'primeng/floatlabel';
 import { InputGroupModule } from 'primeng/inputgroup';
-import { MessagesModule } from 'primeng/messages';
-import { Toast, ToastModule } from 'primeng/toast';
+import { InputGroupAddonModule } from 'primeng/inputgroupaddon';
 import { InputSwitchModule } from 'primeng/inputswitch';
+import { InputTextModule } from 'primeng/inputtext';
+import { MessagesModule } from 'primeng/messages';
+import { PanelModule } from 'primeng/panel';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { TabViewModule } from 'primeng/tabview';
+import { TagModule } from 'primeng/tag';
+import { ToastModule } from 'primeng/toast';
+import { NotesFormComponent } from './notes-form/notes-form.component';
+import { NotesListComponent } from './notes-list/notes-list.component';
+import { NotesTabComponent } from './notes-tab/notes-tab.component';
+import { LoginComponent } from './login/login.component';
+import { PasswordModule } from 'primeng/password';
+import { NoteService } from '../services/note-service';
+import { MessageService } from 'primeng/api';
+
 
 
 
@@ -31,7 +36,7 @@ import { InputSwitchModule } from 'primeng/inputswitch';
     NotesListComponent,
     NotesFormComponent,
     NotesTabComponent,
-
+    LoginComponent
     ],
   imports: [
     CommonModule,
@@ -53,11 +58,17 @@ import { InputSwitchModule } from 'primeng/inputswitch';
     InputGroupModule,
     MessagesModule,
     ToastModule,
-    InputSwitchModule
+    InputSwitchModule,
+    ProgressSpinnerModule,
+    PasswordModule
+    ],
+  providers: [
+    NoteService,
+    MessageService
   ],
-  providers: [],
   exports: [
-    NotesTabComponent
+    NotesTabComponent,
+    LoginComponent
   ]
 })
 export class ViewsModule { }

@@ -1,12 +1,11 @@
+<p-toast life="3000" />
 <div class="card">
-  <div class=" flex align-items-end justify-content-end">
-    <button pButton type="button" label="Atualizar" icon="pi pi-refresh" class="p-button-raised p-button-rounded"
-    (click)="loadNotesWithLoading()"></button>
+  <div class=" flex align-items-end justify-content-end ">
+    <button pButton type="button" label="Atualizar" icon="pi pi-refresh" class="p-button-raised p-button-rounded mb-8 mt-2"
+      (click)="loadNotesWithLoading()"></button>
   </div>
 
-  <p-dataView #dv [value]="notes" [loading]="updated">
-    <ng-template pTemplate="header">
-    </ng-template>
+  <p-dataView #dv [value]="notes" [loading]="updated" [emptyMessage]="'Nenhuma nota encontrada.'">
 
     <!-- --------------- List --------------- -->
     <ng-template pTemplate="list" let-notes on>
@@ -32,15 +31,16 @@
             <div class="flex flex-column md:align-items-end gap-5">
               <div class="flex flex-row gap-2">
                 <ng-container *ngIf="!isNoteActive(item)">
-                  <p-button color icon="pi pi-check" [outlined]="false" severity="success" [raised]="true" [disabled]="false" (onClick)="updateStatus(item)"/>
+                  <p-button color icon="pi pi-check" [outlined]="false" severity="success" [raised]="true"
+                    [disabled]="false" (onClick)="updateStatus(item)" />
                 </ng-container>
                 <ng-container *ngIf="isNoteActive(item)">
-                  <p-button icon="pi pi-check" [outlined]="true" severity="secondary" [raised]="true" [disabled]="false" (onClick)="updateStatus(item)"/>
+                  <p-button icon="pi pi-check" [outlined]="true" severity="secondary" [raised]="true" [disabled]="false"
+                    (onClick)="updateStatus(item)" />
                 </ng-container>
-                <p-button icon="pi pi-pencil"  label=""  [raised]="true"
-                (onClick)="updateNote(item.id)"/>
-                <p-button icon="pi pi-times"  label=""  [raised]="true"
-                (onClick)="deleteNote(item.id)" severity="danger"/>
+                <p-button icon="pi pi-pencil" label="" [raised]="true" (onClick)="updateNote(item.id)" />
+                <p-button icon="pi pi-times" label="" [raised]="true" (onClick)="deleteNote(item.id)"
+                  severity="danger" />
               </div>
             </div>
           </div>
