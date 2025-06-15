@@ -3,9 +3,14 @@
 ![Angular](https://img.shields.io/badge/Angular-v18-red)
 ![License](https://img.shields.io/badge/license-MIT-blue.svg)
 
+
 ## 📋 Descrição
 
 O **NoUtion** é uma aplicação web desenvolvida em Angular, projetada para organização pessoal e produtividade. Inspirada em conceitos de produtividade modular, a aplicação oferece uma interface limpa e intuitiva, utilizando recursos modernos como Progressive Web App (PWA) e uma arquitetura escalável.
+
+## 🗄️ Back-end
+
+- Repositório do back-end: [NoUtion - v2 - Back-end]( https://github.com/Murilocb123/NoUtion-v2-back-end)
 
 ## 🚀 Funcionalidades
 
